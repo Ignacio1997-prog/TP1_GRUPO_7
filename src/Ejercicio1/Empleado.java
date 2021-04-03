@@ -8,6 +8,23 @@ public class Empleado {
 	private int edad;
 	private static int cont = 0;
 	
+	//Constructores
+	public Empleado()
+	{
+		cont++;
+		id = cont + idMil;
+		this.nombre = "sin nombre";
+		this.edad = 99; 
+	}
+	
+	public Empleado(String nombre, int edad)
+	{
+		cont++;
+		id = cont + idMil;
+		this.nombre = nombre;
+		this.edad  = edad;
+	}
+
 	
 	//Gets Y Sets
 	public int getId() {
@@ -25,11 +42,18 @@ public class Empleado {
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
-	public static int getCont() {
-		return cont;
-	}
-	public static void setCont(int cont) {
-		Empleado.cont = cont;
+	
+	//Metodo
+	public static void devuelveProximoID() //Hice el metodo void para que muestre el cartel como dice la consigna (el método devolverá el siguiente cartel “El próximo ID será el 1445”)
+	{
+		int proxId =  idMil + cont+1;
+		System.out.println("El proximo ID sera el " + proxId); 
 	}
 
+	//ToString
+		@Override
+		public String toString() {
+			return "ID: " + id + ", Empleado: " + nombre + " Edad: " + edad;
+		}
+		
 	}
